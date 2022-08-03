@@ -1,4 +1,10 @@
-import { Navigation, Pagination, Autoplay, EffectCoverflow,Keyboard } from "swiper";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  EffectCoverflow,
+  Keyboard,
+} from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Box, Typography } from "@mui/material";
@@ -10,9 +16,13 @@ import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
 let pictures = [
-  { bgColor: "red", src: "/assets/images/gallery/image1.jpg", text: "TBD 1" },
-  { bgColor: "blue", src: "", text: "TBD 2" },
-  { bgColor: "green", src: "", text: "TBD 3" },
+  { bgColor: "red", src: "/assets/images/carousel/image1.jpg", text: "Top Services" },
+  { bgColor: "blue", src: "/assets/images/carousel/image2.jpg", text: "Top Services" },
+  {
+    bgColor: "green",
+    src: "/assets/images/carousel/image3.jpg",
+    text: "Top Services",
+  },
 ];
 
 export default function ImageSlider(props) {
@@ -42,7 +52,7 @@ export default function ImageSlider(props) {
               height: 500,
             }}
           >
-            <Box sx={{backgroundColor:"#0005", width:300, height:125}}>
+            <Box sx={{ backgroundColor: "#0005", width: 300, height: 125 }}>
               <Typography variant="h3" color="#fffd">
                 {pic.text}
               </Typography>

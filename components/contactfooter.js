@@ -24,7 +24,7 @@ export default function ContactFooter(props) {
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. At, ipsum.
         Facilis labore at asperiores ratione.
       </Typography>
-      <Grid container direction={{ md: "row" }}>
+      <Grid container direction={{ xs: "column", md: "row" }}>
         <Grid
           item
           container
@@ -76,7 +76,10 @@ export default function ContactFooter(props) {
             <Button
               variant="contained"
               color="secondary"
-              sx={{ borderRadius: "15px 0 15px 0", width: "20rem" }}
+              sx={{
+                borderRadius: "15px 0 15px 0",
+                width: { xs: "12rem", sm: "20rem" },
+              }}
             >
               Send
             </Button>
@@ -103,7 +106,7 @@ export default function ContactFooter(props) {
             container
             direction="column"
             justifyContent="space-evenly"
-            xs={10}
+            xs={12}
           >
             <Grid item>
               <ContactInfo title="Visit Us" content={props.address} />
@@ -168,11 +171,11 @@ const StyledTextField = styled(TextField)({
 
 function ContactInfo(props) {
   return (
-    <Grid container margin={props.margin} padding={props.padding}>
+    <Grid container margin="0.5rem 0" padding={props.padding}>
       <Grid item>
         <Avatar sx={{ height: "4rem", width: "4rem" }}>{props.icon}</Avatar>
       </Grid>
-      <Grid item margin="0 1rem">
+      <Grid item margin="0 0 0 0.5rem">
         <Typography variant="h6" color="white">
           {props.title}
         </Typography>

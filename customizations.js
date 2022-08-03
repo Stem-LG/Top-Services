@@ -1,6 +1,6 @@
 const companyInfo = {
   Name: "Top Services",
-  Logo: "/assets/images/logo.png" ,
+  Logo: "/assets/images/logo.png",
   Phone: {
     countryCode: "216",
     number: "92005409",
@@ -9,7 +9,7 @@ const companyInfo = {
     countryCode: "216",
     number: "97537966",
   },
-  Email: "topservice@exemple.com",
+  Email: "topservices@exemple.com",
   Facebook: {
     Name: "Jaafar Ghanney",
     Link: "https://www.facebook.com/jaafar.ghanney/",
