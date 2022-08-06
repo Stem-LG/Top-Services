@@ -60,7 +60,12 @@ export default function ImageSlider(props) {
           <Grid container direction={{ xs: "column", sm: "row" }}>
             <Grid item sm={8.5} xs>
               <Box height={350} sx={{ position: "relative" }}>
-                <Image src={service.picture} layout="fill" objectFit="cover" />
+                <Image
+                  src={service.picture}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                />
               </Box>
             </Grid>
             <Grid
@@ -86,19 +91,18 @@ export default function ImageSlider(props) {
                     variant="h6"
                     sx={{ textAlign: { sm: "center" } }}
                     color="white"
-                    marginBottom={{sm:3}}
-                    marginTop={{sm:2}}
-                    >
+                    marginBottom={{ sm: 3 }}
+                    marginTop={{ sm: 2 }}
+                  >
                     {service.title}
                   </Typography>
                 </Box>
                 <Box>
                   <Typography
                     sx={{ textAlign: { sm: "center" } }}
-                    
                     color="white"
                     maxWidth="30ch"
-                    margin={{sm:"0 30px 25px 30px"}}
+                    margin={{ sm: "0 30px 25px 30px" }}
                   >
                     {service.description}
                   </Typography>

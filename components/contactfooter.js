@@ -21,7 +21,7 @@ export default function ContactFooter(props) {
         maxWidth="50ch"
         margin="1.5rem auto"
       >
-        Please fill the form and provide all the details, and we'll be in touch as fast as possible.
+        Please fill the form and provide all the details, and we will be in touch as fast as possible.
       </Typography>
       <Grid container direction={{ xs: "column", md: "row" }}>
         <Grid
