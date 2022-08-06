@@ -14,7 +14,7 @@ const companyInfo = {
     Name: "Jaafar Ghanney",
     Link: "https://www.facebook.com/jaafar.ghanney/",
   },
-  Address: "30 rue belli sidi moussa 8000 nabeul tunisie",
+  Address: "30 rue belli sidi moussa 8000 nabeul",
 };
 
 //you can customize the theme colors in components

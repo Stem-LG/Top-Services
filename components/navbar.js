@@ -30,15 +30,15 @@ function NavBar(props) {
 
   let actions = [
     { title: "Home", route: "#", icon: <HomeIcon /> },
-    { title: "Blog", route: "#", icon: <NewspaperIcon /> },
-    { title: "Gallery", route: "#", icon: <PhotoIcon /> },
-    { title: "About", route: "#", icon: <InfoIcon /> },
-    { title: "Contact", route: "#", icon: <EmailIcon /> },
+    // { title: "Blog", route: "#", icon: <NewspaperIcon /> },
+    { title: "Gallery", route: "#gallery", icon: <PhotoIcon /> },
+    // { title: "About", route: "#", icon: <InfoIcon /> },
+    { title: "Contact", route: "#contact", icon: <EmailIcon /> },
   ];
 
   return (
     <>
-      <Box height={{ xs: "48px", md: "64px" }} />
+      <Box height={{ xs: "48px", sm: "64px" }} />
       <AppBar>
         <Toolbar sx={{ justifyContent: "space-between" }}>
           <>
@@ -77,6 +77,7 @@ function NavBar(props) {
                     </ListItem>
                   </a>
                 ))}
+                
               </List>
             </Drawer>
           </>
