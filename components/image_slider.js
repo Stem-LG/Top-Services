@@ -15,31 +15,31 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 
-let services = [
-  {
-    picture: "/assets/images/carousel/image1.jpg",
-    title: "Lawn Mowing",
-    description:
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet",
-    icon: "/assets/icons/lawnmower.svg",
-  },
-  {
-    picture: "/assets/images/carousel/image2.jpg",
-    title: "Tree Trimming",
-    description:
-      "We provide proper care and trimming to protect your trees longevity.",
-    icon: "/assets/icons/treetrimming.svg",
-  },
-  {
-    picture: "/assets/images/carousel/image3.jpg",
-    title: "Open Spaces Decoration",
-    description:
-      "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet",
-    icon: "/assets/icons/planting.svg",
-  },
-];
 
 export default function ImageSlider(props) {
+  
+  const services = [
+    {
+      picture: "/assets/images/carousel/image1.jpg",
+      title: props.tr("home:landscaping"),
+      description: props.tr("home:landscaping-desc"),
+      icon: "/assets/icons/lawnmower.svg",
+    },
+    {
+      picture: "/assets/images/carousel/image2.jpg",
+      title: props.tr("home:tree-trimming"),
+      description: props.tr("home:tree-trimming-desc"),
+      icon: "/assets/icons/treetrimming.svg",
+    },
+    {
+      picture: "/assets/images/carousel/image3.jpg",
+      title: props.tr("home:decoration"),
+      description: props.tr("home:decoration-desc"),
+      icon: "/assets/icons/planting.svg",
+    },
+  ];
+  
+  
   return (
     <Swiper
       style={{
@@ -58,7 +58,7 @@ export default function ImageSlider(props) {
       {services.map((service, key) => (
         <SwiperSlide key={key}>
           <Grid container direction={{ xs: "column", sm: "row" }}>
-            <Grid item sm={8.5} xs>
+            <Grid item sm={8} md={8.5} xs>
               <Box height={350} sx={{ position: "relative" }}>
                 <Image
                   src={service.picture}
@@ -71,7 +71,8 @@ export default function ImageSlider(props) {
             <Grid
               item
               container
-              sm={3.5}
+              sm={4}
+              md={3.5}
               direction={{ xs: "row", sm: "column" }}
               sx={{ bgcolor: "primary.main" }}
               alignItems="center"

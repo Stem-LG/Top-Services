@@ -10,9 +10,13 @@ import { styled } from "@mui/material/styles";
 
 export default function ContactFooter(props) {
   return (
-    <Paper sx={{ bgcolor: "#4db251", padding: "2rem" }} id="contact" margin={props.margin}>
-      <Typography variant="h4" color="white" align="center" >
-        Contact Us!
+    <Paper
+      sx={{ bgcolor: "#4db251", padding: "2rem" }}
+      id="contact"
+      margin={props.margin}
+    >
+      <Typography variant="h4" color="white" align="center">
+        {props.tr("contact-us")}
       </Typography>
       <Typography
         variant="body1"
@@ -21,7 +25,7 @@ export default function ContactFooter(props) {
         maxWidth="50ch"
         margin="1.5rem auto"
       >
-        Please fill the form and provide all the details, and we will be in touch as fast as possible.
+        {props.tr("contact-us-desc")}
       </Typography>
       <Grid container direction={{ xs: "column", md: "row" }}>
         <Grid
@@ -37,7 +41,7 @@ export default function ContactFooter(props) {
           <Grid item width="100%">
             <StyledTextField
               id="name"
-              label="Name"
+              label={props.tr("name")}
               required
               size=""
               fullWidth
@@ -46,7 +50,7 @@ export default function ContactFooter(props) {
           <Grid item width="100%">
             <StyledTextField
               id="email"
-              label="Email"
+              label={props.tr("email")}
               required
               size=""
               fullWidth
@@ -55,7 +59,7 @@ export default function ContactFooter(props) {
           <Grid item width="100%">
             <StyledTextField
               id="subject"
-              label="Subject (optional)"
+              label={props.tr("subject")}
               size=""
               fullWidth
             />
@@ -63,7 +67,7 @@ export default function ContactFooter(props) {
           <Grid item width="100%">
             <StyledTextField
               id="message"
-              label="Message"
+              label={props.tr("message")}
               required
               size=""
               fullWidth
@@ -80,7 +84,7 @@ export default function ContactFooter(props) {
                 width: { xs: "12rem", sm: "20rem" },
               }}
             >
-              Send
+              {props.tr("send")}
             </Button>
           </Grid>
         </Grid>
@@ -101,7 +105,7 @@ export default function ContactFooter(props) {
               align="center"
               sx={{ marginTop: { xs: 3, sm: 0 } }}
             >
-              Contact information
+              {props.tr("contact-info")}
             </Typography>
           </Grid>
           <Grid
@@ -114,40 +118,30 @@ export default function ContactFooter(props) {
           >
             <Grid item>
               <ContactInfo
-                title="Visit Us"
-                content={props.address}
+                title={props.tr("visit-us")}
+                content={props.tr("address")}
                 icon="/assets/icons/address.svg"
               />
             </Grid>
             <Grid item>
               <ContactInfo
-                title="Phone"
-                content={
-                  "+" +
-                  props.phone.countryCode +
-                  " " +
-                  props.phone.number +
-                  " / " +
-                  "+" +
-                  props.phone2.countryCode +
-                  " " +
-                  props.phone2.number
-                }
+                title={props.tr("phone")}
+                content="+216 92005409 / +216 97537966"
                 icon="/assets/icons/phone.svg"
               />
             </Grid>
             <Grid item>
               <ContactInfo
-                title="Email"
-                content={props.email}
+                title={props.tr("email")}
+                content="topservices@placeholder.com"
                 icon="/assets/icons/at.svg"
               />
             </Grid>
             <Grid item>
               <ContactInfo
-                title="Facebook"
-                content={props.facebook.Name}
-                link={props.facebook.Link}
+                title={props.tr("facebook")}
+                content="Jaafer Ghanney"
+                link="https://www.facebook.com/jaafar.ghanney/"
                 icon="/assets/icons/facebook.svg"
               />
             </Grid>

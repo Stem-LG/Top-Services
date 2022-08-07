@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
           content="width=device-width, initial-scale=1"
         ></meta>
       </Head>
+      
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>

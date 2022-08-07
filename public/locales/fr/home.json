@@ -1,5 +1,24 @@
 {
-    "nav-btn-home":"Acceuil",
-    "nav-btn-gallery":"Gallery",
-    "nav-btn-contact":"Contact"
+    "home":"Acceuil",
+    "gallery":"Gallerie",
+    "contact":"Contact",
+    "landscaping":"Tonte de pelouse",
+    "landscaping-desc":"Votre pelouse recevra la qualité d'entretien qu'elle mérite.",
+    "tree-trimming":"Élagage d'arbres",
+    "tree-trimming-desc":"Le fournissement d'une taille et des soins appropriés Protège la longévité de vos arbres.",
+    "decoration":"Décoration",
+    "decoration-desc":"Nous ferons en sorte que vous obteniez la plus de satisfaction de votre jardin.",
+    "more":"Plus",
+    "contact-us":"Contactez Nous!",
+    "contact-us-desc":"Veuillez remplir le formulaire et fournir tous les détails, et nous vous contacterons dans les plus brefs délais.",
+    "name":"Nom",
+    "email":"Email",
+    "subject":"Sujet (Facultatif)",
+    "message":"Message",
+    "send":"Envoyer",
+    "contact-info":"Coordonnées",
+    "visit-us":"Visitez Nous",
+    "address":"30 rue belli sidi moussa 8000 nabeul",
+    "phone":"Télephone",
+    "facebook":"Facebook"
 }

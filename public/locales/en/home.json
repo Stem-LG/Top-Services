@@ -1,5 +1,24 @@
 {
-    "nav-btn-home":"Home",
-    "nav-btn-gallery":"Gallery",
-    "nav-btn-contact":"Contact"
+    "home":"Home",
+    "gallery":"Gallery",
+    "contact":"Contact",
+    "landscaping":"Landscaping",
+    "landscaping-desc":"Your lawn will get the quality treatment it deserves.",
+    "tree-trimming":"Tree Trimming",
+    "tree-trimming-desc":"Proper care and trimming Protects your trees longevity.",
+    "decoration":"Decoration",
+    "decoration-desc":"We'll make sure you get the most satisfaction out of your garden.",
+    "more":"More",
+    "contact-us":"Contact Us!",
+    "contact-us-desc":"Please fill the form and provide all the details, and we will be in touch as fast as possible.",
+    "name":"Name",
+    "email":"Email",
+    "subject":"Subject (Optional)",
+    "message":"Message",
+    "send":"Send",
+    "contact-info":"Contact Information",
+    "visit-us":"Visit Us",
+    "address":"30 rue belli sidi moussa 8000 nabeul",
+    "phone":"Phone",
+    "facebook":"Facebook"
 }

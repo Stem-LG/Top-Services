@@ -8,7 +8,7 @@ export default function MiniGallery(props) {
   return (
     <Paper elevation={8} sx={{ padding: props.padding, margin: props.margin }} id="gallery">
       <Typography variant="h4" color="primary" align="center">
-        Gallery
+        {props.tr("gallery")}
       </Typography>
       <ImageList
         variant="quilted"
@@ -61,7 +61,7 @@ export default function MiniGallery(props) {
         ))}
       </ImageList>
       <Typography variant="h6" color="primary" align="right">
-        More
+        {props.tr("more")}
       </Typography>
     </Paper>
   );
@@ -70,33 +70,27 @@ export default function MiniGallery(props) {
 const itemData = [
   {
     img: "/assets/images/gallery/image1.jpg",
-    title: "Breakfast",
     rows: 2,
     cols: 2,
   },
   {
     img: "/assets/images/gallery/image2.jpg",
-    title: "Burger",
   },
   {
     img: "/assets/images/gallery/image3.jpg",
-    title: "Camera",
     m_cols: 2,
     m_rows: 2,
   },
   {
     img: "/assets/images/gallery/image4.jpg",
-    title: "Coffee",
     cols: 2,
   },
   {
     img: "/assets/images/gallery/image5.jpg",
-    title: "Hats",
     cols: 2,
   },
   {
     img: "/assets/images/gallery/image6.jpg",
-    title: "Honey",
     author: "@arwinneil",
     rows: 2,
     cols: 2,
@@ -104,34 +98,28 @@ const itemData = [
   },
   {
     img: "/assets/images/gallery/image7.jpg",
-    title: "Basketball",
     display: { xs: "none", sm: "block" },
   },
   {
     img: "/assets/images/gallery/image8.jpg",
-    title: "Fern",
     display: { xs: "none", sm: "block" },
   },
   {
     img: "/assets/images/gallery/image9.jpg",
-    title: "Mushrooms",
     rows: 2,
     cols: 2,
     display: { xs: "none", md: "block" },
   },
   {
     img: "/assets/images/gallery/image10.jpg",
-    title: "Tomato basil",
     display: { xs: "none", md: "block" },
   },
   {
     img: "/assets/images/gallery/image11.jpg",
-    title: "Sea star",
     display: { xs: "none", md: "block" },
   },
   {
     img: "/assets/images/gallery/image12.jpg",
-    title: "Bike",
     cols: 2,
     display: { xs: "none", md: "block" },
   },
