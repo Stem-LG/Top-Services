@@ -215,6 +215,7 @@ function LangSwitcher(props) {
         >
           {props.langs.map((lang) => (
             <MenuItem
+              key={lang}
               onClick={() => {
                 handleClose();
                 props.setCurrentLang({
@@ -261,6 +262,7 @@ function LangSwitcherDrawer(props) {
         <List disablePadding>
           {props.langs.map((lang) => (
             <ListItemButton
+            key={lang}
               sx={{
                 pl: lang.locale == props.currentLang.locale ? 3 : 6,
                 bgcolor: "#0001",
