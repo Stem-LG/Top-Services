@@ -6,9 +6,69 @@ import {
   TextField,
   Avatar,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import {
+  emailVerifier,
+  nameVerifier,
+  phoneVerifier,
+  lengthVerifier,
+} from "../lib/verifiers";
 
 export default function ContactFooter(props) {
+  const [name, nameValid, verifyName] = nameVerifier("");
+  const [email, emailValid, verifyEmail] = emailVerifier("");
+  const [phone, phoneValid, verifyPhone] = phoneVerifier("");
+  const [message, messageValid, verifyMessage] = lengthVerifier("", 15);
+
+  const [sendColor, setSendColor] = useState("secondary");
+  const [sendText, setSendText] = useState("send");
+
+  let data = {
+    name: name,
+    email: email,
+    phone: phone,
+    subject: "",
+    content: message,
+  };
+
+  async function submitMessage() {
+    if (
+      nameValid &&
+      name != "" &&
+      emailValid &&
+      email != "" &&
+      phoneValid &&
+      phone != "" &&
+      messageValid &&
+      message != ""
+    ) {
+      let res = await axios.post("/api/message", data);
+
+      console.log(res);
+      console.log(data);
+      if (res.data.exist) {
+        setSendColor("error");
+        setSendText("not-sent");
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setSendColor("secondary");
+        setSendText("send");
+      } else {
+        setSendColor("success");
+        setSendText("sent");
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setSendColor("secondary");
+        setSendText("send");
+      }
+    } else {
+      setSendColor("error");
+      setSendText("invalid-data");
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSendColor("secondary");
+      setSendText("send");
+    }
+  }
+
   return (
     <Paper
       sx={{ bgcolor: "#4db251", padding: "2rem" }}
@@ -33,58 +93,74 @@ export default function ContactFooter(props) {
           container
           xs={12}
           md={6}
-          direction="column"
+          direction="row"
           spacing={2}
           alignItems="center"
           padding={{ sm: 2, xs: 0 }}
+          justifyContent="center"
         >
           <Grid item width="100%">
             <StyledTextField
-              id="name"
               label={props.tr("name")}
               required
-              size=""
+              error={!nameValid}
+              onBlur={verifyName}
+              helperText={nameValid ? "" : props.tr("invalid-name")}
               fullWidth
             />
           </Grid>
-          <Grid item width="100%">
+
+          <Grid item xs={12} sm={7.5}>
             <StyledTextField
-              id="email"
               label={props.tr("email")}
               required
-              size=""
+              error={!emailValid}
+              onBlur={verifyEmail}
+              helperText={emailValid ? "" : props.tr("invalid-email")}
               fullWidth
             />
           </Grid>
+          <Grid item xs={12} sm={4.5}>
+            <StyledTextField
+              label={props.tr("phone")}
+              required
+              error={!phoneValid}
+              onBlur={verifyPhone}
+              helperText={phoneValid ? "" : props.tr("invalid-phone")}
+              fullWidth
+            />
+          </Grid>
+
           <Grid item width="100%">
             <StyledTextField
-              id="subject"
               label={props.tr("subject")}
-              size=""
               fullWidth
+              inputProps={{ maxLength: 50 }}
             />
           </Grid>
           <Grid item width="100%">
             <StyledTextField
-              id="message"
               label={props.tr("message")}
               required
-              size=""
               fullWidth
               multiline
+              error={!messageValid}
               rows={6}
+              onBlur={verifyMessage}
+              helperText={messageValid ? "" : props.tr("invalid-message")}
             />
           </Grid>
           <Grid item>
             <Button
+              onClick={submitMessage}
               variant="contained"
-              color="secondary"
+              color={sendColor}
               sx={{
                 borderRadius: "15px 0 15px 0",
                 width: { xs: "12rem", sm: "20rem" },
               }}
             >
-              {props.tr("send")}
+              {props.tr(sendText)}
             </Button>
           </Grid>
         </Grid>
@@ -152,30 +228,50 @@ export default function ContactFooter(props) {
   );
 }
 
-const StyledTextField = styled(TextField)({
-  "& label": {
-    color: "white",
-  },
-  "& label.Mui-focused": {
-    color: "white",
-  },
-  "& .MuiInput-underline:after": {
-    borderBottomColor: "white",
-  },
-  "& .MuiOutlinedInput-root": {
-    color: "white",
-    "& fieldset": {
-      borderColor: "white",
-    },
-    "&:hover fieldset": {
-      borderColor: "white",
-      borderWidth: 2,
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "white",
-    },
-  },
-});
+function StyledTextField(props) {
+  let sx = props.error
+    ? {
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { border: "2px solid" },
+          color: "white",
+        },
+      }
+    : {
+        input: {
+          color: "white",
+        },
+        "& .MuiOutlinedInput-root": {
+          "& > fieldset": { border: "2px solid white" },
+          "&:hover fieldset": {
+            borderColor: "white",
+            borderWidth: 2,
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: "white",
+          },
+          color: "white",
+        },
+        "& label": {
+          color: "white",
+        },
+        "& label.Mui-focused": {
+          color: "white",
+        },
+      };
+
+  const [textFieldSize, setTextFieldSize] = useState("medium");
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setTextFieldSize("small");
+    }
+    window.addEventListener("resize", () =>
+      setTextFieldSize(window.innerWidth >= 500 ? "medium" : "small")
+    );
+  });
+
+  return <TextField {...props} sx={sx} size={textFieldSize} />;
+}
 
 function ContactInfo(props) {
   return (

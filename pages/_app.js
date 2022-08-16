@@ -3,7 +3,7 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import theme from "../components/theme";
+import theme from "../lib/theme";
 import { ThemeProvider } from "@mui/material";
 import Head from "next/head";
 import { appWithTranslation } from "next-i18next";

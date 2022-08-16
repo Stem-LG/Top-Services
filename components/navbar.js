@@ -116,7 +116,7 @@ function NavBar(props) {
                       <ListItemButton>
                         <ListItemIcon>{action.icon}</ListItemIcon>
                         <ListItemText>
-                          <Typography variant="body1">
+                          <Typography variant="body1" color="initial">
                             {action.title}
                           </Typography>{" "}
                         </ListItemText>
@@ -155,7 +155,7 @@ function NavBar(props) {
           >
             {actions.map((action, key) => (
               <Grid item key={key}>
-                <a href={action.route}>
+                <a href={action.route} style={{ textDecoration: "none" }}>
                   <Button
                     variant="contained"
                     sx={{ borderRadius: "15px 0 15px 0" }}

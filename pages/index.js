@@ -1,11 +1,10 @@
 import NavBar from "../components/navbar";
 import ImageSlider from "../components/image_slider";
-import Services from "../components/service";
+// import Services from "../components/service";
 import MiniGallery from "../components/mini_gallery";
 import ContactFooter from "../components/contactfooter";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation} from "next-i18next";
-import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export async function getStaticProps({ locale }) {
   return {
@@ -28,6 +27,7 @@ export default function Home(props) {
         padding="1rem"
         tr={t}
       />
+      
       <ContactFooter tr={t} />
     </>
   );
