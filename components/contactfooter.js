@@ -9,17 +9,17 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  emailVerifier,
-  nameVerifier,
-  phoneVerifier,
-  lengthVerifier,
+  useEmailVerifier,
+  useNameVerifier,
+  usePhoneVerifier,
+  useLengthVerifier,
 } from "../lib/verifiers";
 
 export default function ContactFooter(props) {
-  const [name, nameValid, verifyName] = nameVerifier("");
-  const [email, emailValid, verifyEmail] = emailVerifier("");
-  const [phone, phoneValid, verifyPhone] = phoneVerifier("");
-  const [message, messageValid, verifyMessage] = lengthVerifier("", 15);
+  const [name, nameValid, verifyName] = useNameVerifier("");
+  const [email, emailValid, verifyEmail] = useEmailVerifier("");
+  const [phone, phoneValid, verifyPhone] = usePhoneVerifier("");
+  const [message, messageValid, verifyMessage] = useLengthVerifier("", 15);
 
   const [sendColor, setSendColor] = useState("secondary");
   const [sendText, setSendText] = useState("send");
