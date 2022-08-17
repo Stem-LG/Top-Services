@@ -6,11 +6,13 @@ export default async (req, res) => {
   let db = client.db(process.env.MONGODB_DBNAME);
   let collection = db.collection("messages");
 
-  let message = {};
-  message.name = req.body.name;
-  message.email = req.body.email;
-  message.subject = req.body.subject;
-  message.message = req.body.content;
+  let message = {
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    subject: req.body.subject,
+    message: req.body.content,
+  };
 
   let exist = await collection.findOne(message);
 

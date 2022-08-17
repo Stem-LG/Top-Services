@@ -135,6 +135,9 @@ export default function ContactFooter(props) {
             <StyledTextField
               label={props.tr("subject")}
               fullWidth
+              onBlur={(e) => {
+                data.subject = e.target.value;
+              }}
               inputProps={{ maxLength: 50 }}
             />
           </Grid>
