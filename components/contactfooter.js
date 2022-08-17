@@ -20,6 +20,7 @@ export default function ContactFooter(props) {
   const [email, emailValid, verifyEmail] = useEmailVerifier("");
   const [phone, phoneValid, verifyPhone] = usePhoneVerifier("");
   const [message, messageValid, verifyMessage] = useLengthVerifier("", 15);
+  const [subject, setSubject] = useState("");
 
   const [sendColor, setSendColor] = useState("secondary");
   const [sendText, setSendText] = useState("send");
@@ -28,7 +29,7 @@ export default function ContactFooter(props) {
     name: name,
     email: email,
     phone: phone,
-    subject: "",
+    subject: subject,
     content: message,
   };
 
@@ -136,7 +137,7 @@ export default function ContactFooter(props) {
               label={props.tr("subject")}
               fullWidth
               onBlur={(e) => {
-                data.subject = e.target.value;
+                setSubject(e.target.value);
               }}
               inputProps={{ maxLength: 50 }}
             />
